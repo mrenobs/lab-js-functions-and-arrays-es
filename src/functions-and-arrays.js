@@ -1,41 +1,96 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a, b) {
+  return a > b;
+}
+console.log("10 es mayor que 21?", 10 > 21);
 
 // Iteration #2: Find longest word
+
+function findLongestWord (words) {
+  let LongestWord = words[0];
+
+for (let i = 1; i < words.length; i++) {
+  if (words[i].length > findLongestWord.length){
+    findLongestWord = words[i];
+     }
+   }
+   return findLongestWord;
+  }
+  
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
-function findLongestWord() {}
-
-
+const exWords = findLongestWord(words);
+console.log("La palabra mas larga es:", exWords);
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(numeros) {
+  let suma = 0
+  for(let i = 0; i < numeros.length; i++){
+    suma += numeros[i];
+}
+return suma;
+}
+const resultadoSumNumbers = sumNumbers(numbers)
+console.log("Resultado de la suma:", resultadoSumNumbers);
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+
+
+const numbers4 = [2, 6, 9, 10, 7, 4, 1, 9];
+
+
 
 
 
 // Iteration #4: Calculate the average
+let sumResult = resultadoSumNumbers
+console.log(sumResult);
+const numbersAvg = (2, 6, 9, 10, 7, 4, 1, 9);
+
+let division = resultadoSumNumbers / numbersAvg
+console.log(division);
+
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+const averageNumbers = (numbers5) => {
+  const sum = numbers.reduce((acc, curr)=> acc+ curr, 0);
+  return sum / numbers.length;
+};
+const numbers5 = (2, 6, 9, 10, 7, 4, 1, 9);
+const average = averageNumbers(numbers5);
+console.log(`La media de los números es: ${average}`);
 
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+function averageWordLength (words) {
+  if (words.length === 0) {
+    return 0;
+  }
+  const totalLenght = words.reduce((acc, word) => acc + word.length, 0);
+  const averageLenght = totalLenght / words.length;
+  return averageLenght.toFixed(2);
+}
 
-function averageWordLength() { }
+const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const average1 = averageWordLength(words);
+console.log(`La longitud media de la palabra es: ${average1}`, );
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  const numericElements = arr.filter ((el) => typeof el === `number`);
+   if(numericElements.length === 0){
+    return 0;
+   }
+   const sum = numericElements.reduce((acc, curr) => acc + curr, 0);
+   const average2 = sum / numericElements.length;
+   return average2.toFixed(2);
+}
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const result = avg(mixedArr);
+console.log(`El promedio de la matriz mixta es: ${result}`);
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,18 +107,50 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  const uniquewords = [];
+  for (const word of words) {
+    if (uniquewords.indexOf(word) === -1){
+      uniquewords.push(word);
+    }
+  }
+  return uniquewords;
+}
 
+const uniqueWordsArray = uniquifyArray(words);
+console.log(uniqueWordsArray);
 
 
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordArray, targetWord) {
+  for( const word1 of wordArray){
+    if( word1 === targetWord) {
+      return true;
+    }
+  }
+  return false;
+  }
+  
+const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const searchWord = wordsFind;
+const WordExists = doesWordExist(wordsFind, searchWord);
+console.log(`¿La palabra "${searchWord}" existe en el arreglo? ${WordExists}`);
 
 
 
 // Iteration #7: Count repetition
+function howManyTimes (wordList, targetWord){
+  let count = 0 
+
+  for (const word3 of wordList) {
+    if (word3 === targetWord){
+      count ++;
+    }
+  }
+  return count;
+  
+}
 const wordsCount = [
   'machine',
   'matter',
@@ -76,13 +163,44 @@ const wordsCount = [
   'truth',
   'disobedience',
   'matter'
-];
-
-function howManyTimes() {}
-
-
+]; 
+const target = "matter";
+const result1 = howManyTimes(wordsCount, target);
+console.log(`La palabra '${target}' aparece ${result1} veces en la lista.`);
 
 // Iteration #8: Bonus
+
+function greatestProduct(matrix){
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+  let maxProduct = 0;
+
+  for (let i = 0; i < rows; i++){
+    for (let j = 0; j < cols - 3; j++){
+      const product = matrix [i][j] * matrix[i][j + 1] * matrix [i][j + 2] * matrix[i][j + 3];
+      maxProduct = Math.max(maxProduct, product)
+    }
+  }
+  for (let i = 0; i < rows - 3; i++) {
+    for (let j = 0; j < cols; j++) {
+        const product = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        maxProduct = Math.max(maxProduct, product);
+    }
+}
+for (let i = 0; i < rows - 3; i++) {
+  for (let j = 0; j < cols - 3; j++) {
+      const product = matrix[i][j] * matrix[i + 1][j + 1] * matrix[i + 2][j + 2] * matrix[i + 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+  }
+}
+for (let i = 3; i < rows; i++) {
+  for (let j = 0; j < cols - 3; j++) {
+      const product = matrix[i][j] * matrix[i - 1][j + 1] * matrix[i - 2][j + 2] * matrix[i - 3][j + 3];
+      maxProduct = Math.max(maxProduct, product);
+  }
+}
+return maxProduct;
+}
 const matrix = [
   [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -106,7 +224,8 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const result4 = greatestProduct(matrix);
+console.log(`El mayor producto de cuatro números adyacentes en la matrix es: ${result4}`);
 
 
 

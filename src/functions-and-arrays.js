@@ -1,6 +1,6 @@
 // Iteration #1: Find the maximum
 function maxOfTwoNumbers(a, b) {
-  return a > b;
+  return a > b ? a : b;
 }
 console.log("10 es mayor que 21?", 10 > 21);
 
